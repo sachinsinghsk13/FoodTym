@@ -1,0 +1,26 @@
+@media (min-width:576px) {
+    #imgslider img {
+        height: 200px;
+    }
+}
+
+@media (min-width:768px) {
+    #imgslider img {
+        height: 250px;
+    }
+}
+@media (min-width:992px) {
+    #imgslider img {
+        height: 300px;
+    }
+}
+@media (min-width:1200px) {
+    #imgslider img {
+        height: 350px;
+    }
+}
+#imgslider img {
+    display: block;
+    width: 100%;
+}
+
