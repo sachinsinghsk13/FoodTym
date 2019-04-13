@@ -12,6 +12,10 @@ public class CustomerInfoBean {
 
 	public void setCustomerLoggedIn(boolean customerLoggedIn) {
 		this.customerLoggedIn = customerLoggedIn;
+		if (this.customer != null)
+			this.customerLoggedIn = true;
+		else
+			this.customerLoggedIn = false;
 	}
 
 	public CustomerInfoBean() {
@@ -23,6 +27,8 @@ public class CustomerInfoBean {
 	}
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+		if (this.customer != null)
+			this.customerLoggedIn = true;
 	}
 	public Location getLocation() {
 		return location;

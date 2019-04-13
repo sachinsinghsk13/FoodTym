@@ -2,7 +2,7 @@ package com.foodtym.beans;
 
 public class Location {
 	private int id;
-	private String localityName;
+	private String locality;
 	private String region;
 	
 	public int getId() {
@@ -11,11 +11,11 @@ public class Location {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getLocalityName() {
-		return localityName;
+	public String getLocality() {
+		return locality;
 	}
-	public void setLocalityName(String localityName) {
-		this.localityName = localityName;
+	public void setLocality(String localityName) {
+		this.locality = localityName;
 	}
 	public String getRegion() {
 		return region;

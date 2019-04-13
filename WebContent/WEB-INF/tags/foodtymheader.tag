@@ -3,12 +3,13 @@
 <%@ attribute name="cartItems" rtexprvalue="true" required="true"%>
 <%@ attribute name="location" rtexprvalue="true" required="true"%>
 <%@ attribute name="customerName" rtexprvalue="true" required="true"%>
-<%@ tag body-content="empty" %>
+<%@ tag body-content="empty"%>
 <nav
 	class="navbar navbar-expand-md navbar-light bg-light shadow sticky-top"
 	id="navbar">
-	<a href="#" class="navbar-brand mb-0 h1"> <img src="static/images/logo/logo.png"
-		alt="" width="60" height="60"> FoodTym
+	<a href="#" class="navbar-brand mb-0 h1"> <img
+		src="static/images/logo/logo.png" alt="" width="60" height="60">
+		FoodTym
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarSupportedContent"
@@ -31,8 +32,7 @@
 					class="fas fa-shopping-cart"></i> My Cart <span
 					class="badge badge-primary badge-notify"> ${cartItems}</span></a></li>
 			<li class="nav-item"><a href="#" class="nav-link"> <i
-					class="fas fa-map-marker-alt"></i> 
-					<c:choose>
+					class="fas fa-map-marker-alt"></i> <c:choose>
 						<c:when test="${location eq ''}">
 							Choose Location
 						</c:when>
@@ -48,12 +48,105 @@
 					</a></li>
 				</c:when>
 				<c:otherwise>
-					<li class="nav-item"><a href="#"
-						class="btn btn-success btn-sm m-2">Login</a></li>
-					<li class="nav-item"><a href="#"
-						class="btn btn-danger btn-sm m-2">Register</a></li>
+					<li class="nav-item"><button
+						class="btn btn-success btn-sm m-2" id="login-btn">Login</button></li>
+					<li class="nav-item"><button
+						class="btn btn-danger btn-sm m-2" id="register-btn">Register</button></li>
 				</c:otherwise>
 			</c:choose>
 		</ul>
 	</div>
 </nav>
+
+<%-- Login Model --%>
+<div class="modal fade" tabindex="-1" role="dialog" id="login-modal">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content p-3">
+			<div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h3 class="text-center">FoodTym Login</h3>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Mobile No." id="login-mobile-input">
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Password" id="login-password-input">
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<button class="btn btn-primary btn-block btn-sm" id="login-submit-btn">
+								Login
+								<div class="spinner-border spinner-border-sm mx-2" role="status"
+									id="login-loader" style="display:none">
+									<span class="sr-only">Loading...</span>
+								</div>
+							</button>
+						</div>
+					</div>
+					<hr>
+					<div class="col-sm-12">
+						<p class="text-muted">
+							<a href="http://" class="btn-link">Forget Password?</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<%-- Registration Modal --%>
+<div class="modal fade" id="registration-modal" role="dialog" tabindex="-1">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content p-3">
+			<div class="modal-body">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h3 class="text-center">FoodTym Registration</h3>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Full Name" id="register-fullname-input">
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Mobile No." id="register-mobile-input">
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Password" id="register-password-input">
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<input type="text" class="form-control"
+								placeholder="Confirm Password" id="register-confirm-password-input">
+						</div>
+					</div>
+					<div class="col-sm-12">
+						<div class="form-group">
+							<button class="btn btn-danger btn-block btn-sm" id="register-submit-btn">Register
+								<div class="spinner-border spinner-border-sm mx-2" role="status"
+									id="register-loader" style="display:none">
+									<span class="sr-only">Loading...</span>
+								</div>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
