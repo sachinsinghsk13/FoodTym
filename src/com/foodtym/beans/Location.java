@@ -23,5 +23,9 @@ public class Location {
 	public void setRegion(String region) {
 		this.region = region;
 	}
+	@Override
+	public String toString() {
+		return "Location [id=" + id + ", locality=" + locality + ", region=" + region + "]";
+	}
 	
 }

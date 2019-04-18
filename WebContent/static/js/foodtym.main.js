@@ -168,8 +168,12 @@ function setup() {
 		$('#registration-modal').modal('show');
 	});
 
+	$('#logout-btn').click(function () {
+		window.location = "/FoodTym/CustomerLogout";
+	});
+
 	// Login Process
-	$('#login-submit-btn').click(()=> {
+	$('#login-submit-btn').click(() => {
 		var mobileNo = $('#login-mobile-input').val();
 		var password = $('#login-password-input').val();
 		if (!mobileNo || !password) {
@@ -177,18 +181,15 @@ function setup() {
 			return;
 		}
 		else {
-			var formdata = new FormData();
-			formdata.set('mobileno',mobileNo);
-			formdata.set('password',password);
 			$.ajax({
 				url: '/FoodTym/CustomerLogin',
 				method: 'POST',
 				beforeSend: () => {
 					$('#login-loader').show();
 				},
-				data: formdata,
-				processData:false,
-				complete: ()=> {
+				data: $.param({ "mobileno": mobileNo, "password": password }),
+				processData: true,
+				complete: () => {
 					$('#login-loader').hide();
 				},
 				success: (res) => {
@@ -205,8 +206,46 @@ function setup() {
 	});
 
 
-	$('#register-submit-btn').click(()=> {
-		
+	$('#register-submit-btn').click(() => {
+		var fullname = $('#register-fullname-input').val();
+		var mobileno = $('#register-mobile-input').val();
+		var password = $('#register-password-input').val();
+		var con_password = $('#register-confirm-password-input').val();
+
+		if (!fullname || !mobileno || !password || !con_password) {
+			alert("Please fill the registration form");
+			return;
+		}
+		else if (password !== con_password) {
+			alert('Password not matched');
+			return;
+		}
+		else {
+			$.ajax({
+				url: '/FoodTym/CustomerRegistration',
+				method: 'POST',
+				beforeSend: () => {
+					$('#register-loader').show();
+				},
+				data: $.param({ "mobileno": mobileno, "fullname": fullname, "password": password }),
+				processData: true,
+				complete: () => {
+					$('#register-loader').hide();
+				},
+				success: (res) => {
+					var obj = JSON.parse(res);
+					if (obj.code == 1) {
+						$('#registration-modal').modal('hide');
+						alert("Registration Successful. You Can Login Now");
+					}
+					else {
+						alert('This Mobile No is already registered.');
+						$('#register-mobile-input').addClass('is-invalid');
+					}
+				}
+			});
+		}
+
 	});
 
 }

@@ -30,7 +30,6 @@ public class CustomerRegistration extends HttpServlet {
 		try {
 			if (!dao.isCustomerExist(mobileno)) {
 				String fullName = request.getParameter("fullname");
-				String email = request.getParameter("email");
 				String password = request.getParameter("password");
 				Customer customer = new Customer();
 				customer.setName(fullName);

@@ -29,6 +29,8 @@ public class CustomerInfoBean {
 		this.customer = customer;
 		if (this.customer != null)
 			this.customerLoggedIn = true;
+		else
+			this.customerLoggedIn = false;
 	}
 	public Location getLocation() {
 		return location;
@@ -41,6 +43,12 @@ public class CustomerInfoBean {
 	}
 	public void setCart(Cart cart) {
 		this.cart = cart;
+	}
+
+	@Override
+	public String toString() {
+		return "CustomerInfoBean [customer=" + customer + ", location=" + location + ", cart=" + cart
+				+ ", customerLoggedIn=" + customerLoggedIn + "]";
 	}
 	
 }

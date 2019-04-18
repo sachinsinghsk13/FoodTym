@@ -26,13 +26,15 @@ public class CustomerInfoBeanInitializer implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		// return only old session
 		HttpSession session = req.getSession(false);
-		if (session == null) { // this is a new session
+		if (session == null || session.getAttribute("customerinfobean") == null) { // this is a new session
 			CustomerInfoBean customerInfoBean = new CustomerInfoBean();
 			customerInfoBean.setCart(new FoodCart());
 			session = req.getSession(); // creates a new session
 			session.setAttribute("customerinfobean", customerInfoBean);
 			System.out.println("customerinfobean added to session");
 		}
+		CustomerInfoBean bean = (CustomerInfoBean) session.getAttribute("customerinfobean");
+		System.out.println(bean);
 		chain.doFilter(request, response);
 	}
 

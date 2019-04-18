@@ -30,5 +30,12 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Customer [id=").append(id).append(", name=").append(name).append(", mobile=").append(mobile)
+				.append(", password=").append(password).append("]");
+		return builder.toString();
+	}
 	
 }

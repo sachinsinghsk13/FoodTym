@@ -43,9 +43,9 @@
 			</a></li>
 			<c:choose>
 				<c:when test="${loginStatus}">
-					<li class="nav-item"><a href="#" class="nav-link"> <i
+					<li class="nav-item"><p class="nav-link" style="cursor:pointer" id="logout-btn"> <i
 							class="fas fa-user"></i> ${customerName}
-					</a></li>
+					</p></li>
 				</c:when>
 				<c:otherwise>
 					<li class="nav-item"><button
