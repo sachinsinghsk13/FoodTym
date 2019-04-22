@@ -7,7 +7,7 @@
 <nav
 	class="navbar navbar-expand-md navbar-light bg-light shadow sticky-top"
 	id="navbar">
-	<a href="#" class="navbar-brand mb-0 h1"> <img
+	<a href="/FoodTym/" class="navbar-brand mb-0 h1"> <img
 		src="static/images/logo/logo.png" alt="" width="60" height="60">
 		FoodTym
 	</a>
@@ -28,10 +28,10 @@
 
 		</ul>
 		<ul class="navbar-nav ml-auto">
-			<li class="nav-item"><a href="#" class="nav-link"> <i
+			<li class="nav-item"><a href="/FoodTym/Cart" class="nav-link"> <i
 					class="fas fa-shopping-cart"></i> My Cart <span
 					class="badge badge-primary badge-notify"> ${cartItems}</span></a></li>
-			<li class="nav-item"><a href="#" class="nav-link"> <i
+			<li class="nav-item"><a href="/FoodTym/" class="nav-link"> <i
 					class="fas fa-map-marker-alt"></i> <c:choose>
 						<c:when test="${location eq ''}">
 							Choose Location

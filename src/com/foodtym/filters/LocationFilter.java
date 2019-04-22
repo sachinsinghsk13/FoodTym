@@ -13,32 +13,28 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.foodtym.beans.CustomerInfoBean;
-import com.foodtym.beans.FoodCart;
 
-@WebFilter("/*")
-public class CustomerInfoBeanInitializer implements Filter {
-
+@WebFilter("/Restaurants/*")
+public class LocationFilter implements Filter {
 
 	public void destroy() {
-
+		
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
-		// return only old session
-		HttpSession session = req.getSession(false);
-		if (session == null || session.getAttribute("customerinfobean") == null) { // this is a new session
-			CustomerInfoBean customerInfoBean = new CustomerInfoBean();
-			customerInfoBean.setCart(new FoodCart());
-			session = req.getSession(); // creates a new session
-			session.setAttribute("customerinfobean", customerInfoBean);
+		HttpServletResponse res = (HttpServletResponse) response;
+		HttpSession session = req.getSession();
+		CustomerInfoBean bean = (CustomerInfoBean) session.getAttribute("customerinfobean");
+		if (bean.getLocation() == null) {
+			res.sendRedirect(req.getContextPath() + "/");
+		} else {
+			chain.doFilter(request, response);
 		}
-		chain.doFilter(request, response);
 	}
 
-
 	public void init(FilterConfig fConfig) throws ServletException {
-
+		
 	}
 
 }

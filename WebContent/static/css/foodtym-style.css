@@ -26,33 +26,32 @@
     width: 100%;
 }
 
-/*Auto Complete Box*/
-.autocomplete-box {
-    position: relative;
+
+.heading {
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 1.2;
 }
 
-.autocomplete-items {
-    position: absolute;
-    top: 100%;left: 0;right: 0;
-    background-color: white;
-    z-index:10;
-    box-shadow: 2px 2px 2px #ddd;
+.restaurant-img {
+    width: 150px;
+    height: 150px;
+    border: 1px solid gainsboro;
+    padding: 5px;
 }
 
-.autocomplete-items div {
-    padding: 2px;
-    font-size: 1.2em;
-    font-family: Arial, Helvetica, sans-serif;
+.restaurant-logo {
+    width: 100px;
+    height: 100px;
 }
 
-.autocomplete-items div.activeSuggestion {
-    background-color: #dc3545;
-    color:white;
+.food-img {
+    width: 80px;
+    height: 80px;
 }
-.autocomplete-items div:hover {
-    background-color: #dc3545;
-    color: white;
-    cursor: pointer;
+
+.quantity-box {
+    width: 40px;
 }
 
 

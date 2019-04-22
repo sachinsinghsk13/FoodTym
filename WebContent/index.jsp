@@ -14,11 +14,12 @@
 </head>
 
 <body>
-	<tags:foodtymheader location="${customerinfobean.location.locality}" loginStatus="${customerinfobean.customerLoggedIn}"
+	<tags:foodtymheader location="${customerinfobean.location.locality}"
+		loginStatus="${customerinfobean.customerLoggedIn}"
 		customerName="${customerinfobean.customer.name}"
 		cartItems="${customerinfobean.cart.totalItems}" />
 
-	<tags:imageslider interval="1500" />
+	<tags:imageslider interval="1500"/>
 
 	<div class="container p-3">
 		<h3 class="text-center">Welcome! to FoodTym</h3>
@@ -29,28 +30,25 @@
 		<div class="row m-1">
 			<h4 class="text-center">Search Restaurants Near You</h4>
 		</div>
-		<div class="row m-1">
-			<div class="col-md-4">
-				<div class="form-group">
-					<div class="autocomplete-box">
-						<input type="text" class="form-control" placeholder="NCR Region" id="region">
+		<form action="${pageContext.request.contextPath}/SetLocality" method="POST">
+			<div class="row m-1">
+				<div class="col-md-4">
+					<select class="custom-select m-2" id="region">
+						<option>NCR Region</option>
+					</select>
+				</div>
+				<div class="col-md-4">
+					<select class="custom-select m-2" id="locality" name="localityid">
+						<option>Locality</option>
+					</select>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group">
+						<input type="submit" class="btn btn-danger btn-block m-2" id="search-btn" value="Search Restaurants"/>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4">
-				<div class="form-group">
-					<div class="autocomplete-box">
-						<input type="text" class="form-control" placeholder="Locality" id="locality">
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="form-group">
-					<button class="btn btn-danger btn-block" id="search-btn">Search
-						Restaurants</button>
-				</div>
-			</div>
-		</div>
+		</form>
 	</div>
 
 	<div class="container-fluid p-3 shadow">
